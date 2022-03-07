@@ -23,7 +23,7 @@ if (typeof(process.env.MONGO_ROOT_PASSWORD) !== "undefined")
 };
 
 //This will attempt to grab properties from an .env file if it exists. Any properties already set in the environment will take precedence.
-let dotEnvConfigPath: string = resolve(__dirname, "../.env");
+let dotEnvConfigPath: string = resolve(__dirname, "../../.env");
 dotEnvConfig({ path: dotEnvConfigPath }); 
 
 if (typeof(process.env.MONGO_ROOT_USER) === "undefined") 
