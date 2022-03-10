@@ -4,7 +4,7 @@ import request from "../wrappers/request";
 
 interface User 
 {
-    username: string,
+    name: string,
     email: string
 }
 export class UserAPI
@@ -35,27 +35,25 @@ export class UserAPI
       
     };
 
-    async postUser(username: string, email:string)
+    async postUser(_name: string, _email: string)
     {
 
         let newUser: User = 
         {
-            username: username,
-            email: email
+            name: _name,
+            email: _email
         };
 
         const options: IRequestOptions =
         {
-            method: "POST",
-            body: newUser,
             headers: {
                 "Content-Type": "application/json"
             }
         }
 
-        const uri = "http://localhost:8000/api/v1/users";
+        const uri = "http://localhost:8000/api/v1/user";
 
-        let response = await this.UserRequest.post(uri, options);
+        let response = await this.UserRequest.post(uri, newUser, options);
         return response;
     };
 

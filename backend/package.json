@@ -6,7 +6,9 @@
   "scripts": {
     "build": "npx tsc",
     "start": "node ./dist/index",
-    "test": "mocha dist/tests/**.js"
+    "test": "mocha dist/tests/**.js",
+    "bat": "npm run build && npm run test",
+    "bats": "npm run build && npm run test && npm run start"
   },
   "repository": {
     "type": "git",

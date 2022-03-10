@@ -18,6 +18,7 @@ The react frontend was bootstrapped using create-react-app.
   - [ ] Add a form to add user.
   - [ ] Add a component to display the current users
   - [ ] Add a UI widget to delete a user.
+  - [ ] Handle error responses correctly in Users component.
 - [ ] Add a nginx.conf file
 - [ ] Dockerise frontend
 - [ ] Dockerise backend

@@ -9,7 +9,7 @@ interface UserComponentProps
 
 interface UserComponentState
 {
-    username: string;
+    name: string;
     email: string;
 };
 
@@ -22,20 +22,20 @@ export default class UserComponent extends React.Component<UserComponentProps, U
     {
         super(props);
         this.state = {
-            'username': '',
+            'name': '',
             'email': ''
         };
 
-        this.handleUsernameInputChange = this.handleUsernameInputChange.bind(this);
+        this.handleNameInputChange = this.handleNameInputChange.bind(this);
         this.handleEmailInputChange = this.handleEmailInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
 
         this.userAPI = new UserAPI();
     };
 
-    handleUsernameInputChange(event: React.ChangeEvent<HTMLInputElement>)
+    handleNameInputChange(event: React.ChangeEvent<HTMLInputElement>)
     {
-        this.setState({ 'username': event.target.value });
+        this.setState({ 'name': event.target.value });
     };
 
     handleEmailInputChange(event: React.ChangeEvent<HTMLInputElement>)
@@ -46,7 +46,7 @@ export default class UserComponent extends React.Component<UserComponentProps, U
     handleSubmit(event: React.FormEvent<HTMLFormElement>)
     {
         event.preventDefault();
-        this.userAPI.postUser(this.state.username, this.state.email)
+        this.userAPI.postUser(this.state.name, this.state.email)
             .then(response => {
                 console.log("The response is: ", response);
             })  
@@ -61,7 +61,7 @@ export default class UserComponent extends React.Component<UserComponentProps, U
             <div className="User-main">
                 <form className="User-form"  onSubmit={this.handleSubmit}>
                     <label>
-                        <input type="text" name="name" placeholder="Username" value={this.state.username} onChange={this.handleUsernameInputChange} />
+                        <input type="text" name="name" placeholder="Name" value={this.state.name} onChange={this.handleNameInputChange} />
                     </label>
                     <label>
                         <input type="text" name="name" placeholder="Email" value={this.state.email} onChange={this.handleEmailInputChange} />
@@ -69,7 +69,7 @@ export default class UserComponent extends React.Component<UserComponentProps, U
                     <input type="submit" value="Submit" />
                 </form>
                 <div className="User-info">
-                    <p>Username: {this.state.username}</p>
+                    <p>Name: {this.state.name}</p>
                     <p>Email: {this.state.email}</p>
                 </div>
             </div>

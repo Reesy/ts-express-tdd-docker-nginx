@@ -15,6 +15,7 @@ class APIComponent
     this.app = express();
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: false }));
+    this.app.use(cors());
     this.users = _users;
   };
 

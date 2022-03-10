@@ -4,7 +4,7 @@ import React from 'react';
 
 interface UsersDisplayComponentProps
 {
-    username: string;
+    name: string;
     email: string;
 };
 
