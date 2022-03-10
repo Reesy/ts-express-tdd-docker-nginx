@@ -15,11 +15,12 @@ The react frontend was bootstrapped using create-react-app.
 -------
 
 - [ ] Updated frontend to call the api.
-  - [ ] Add a form to add user.
-  - [ ] Add a component to display the current users
+  - [x] Add a form to add user.
+  - [x] Add a component to display the current users
   - [ ] Add a UI widget to delete a user.
   - [ ] Handle error responses correctly in Users component.
 - [ ] Add a nginx.conf file
+- [ ] Update CORS to be less permissable, i.e add a prod mode. 
 - [ ] Dockerise frontend
 - [ ] Dockerise backend
 - [ ] Add docker-compose.yml

@@ -2,7 +2,7 @@ import { IRequest } from "../wrappers/IRequest";
 import { IRequestOptions } from "../wrappers/IRequestOptions";
 import request from "../wrappers/request";
 
-interface User 
+export interface User 
 {
     name: string,
     email: string
@@ -30,8 +30,8 @@ export class UserAPI
 
         
         let serverResponse = await this.UserRequest.get(uri, options);  
-        let roomArray: Array<User> = serverResponse.data;
-        return roomArray;
+        let users: Array<User> = serverResponse.data;
+        return users;
       
     };
 

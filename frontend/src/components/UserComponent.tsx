@@ -1,6 +1,7 @@
 import React from 'react';
-import { UserAPI } from '../apis/UserAPI';
+import { User, UserAPI } from '../apis/UserAPI';
 import '../styles/UserComponent.css';
+import UsersDisplayComponent from './UsersDisplayComponent';
 
 interface UserComponentProps
 {
@@ -11,6 +12,7 @@ interface UserComponentState
 {
     name: string;
     email: string;
+    users: User[];
 };
 
 export default class UserComponent extends React.Component<UserComponentProps, UserComponentState>
@@ -22,13 +24,15 @@ export default class UserComponent extends React.Component<UserComponentProps, U
     {
         super(props);
         this.state = {
-            'name': '',
-            'email': ''
+            name: '',
+            email: '',
+            users: []
         };
 
         this.handleNameInputChange = this.handleNameInputChange.bind(this);
         this.handleEmailInputChange = this.handleEmailInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleGetUsers = this.handleGetUsers.bind(this);
 
         this.userAPI = new UserAPI();
     };
@@ -41,6 +45,19 @@ export default class UserComponent extends React.Component<UserComponentProps, U
     handleEmailInputChange(event: React.ChangeEvent<HTMLInputElement>)
     {
         this.setState({ 'email': event.target.value });
+    };
+
+    handleGetUsers(event: React.MouseEvent<HTMLButtonElement, MouseEvent>)
+    {
+        this.userAPI.getUsers()
+            .then(_users => {
+                this.setState({ users: _users });
+                console.log(_users);
+            })
+            .catch(error => {
+                console.log(error);
+            }
+        );
     };
 
     handleSubmit(event: React.FormEvent<HTMLFormElement>)
@@ -57,6 +74,7 @@ export default class UserComponent extends React.Component<UserComponentProps, U
 
     render(): React.ReactNode
     {
+
         return (
             <div className="User-main">
                 <form className="User-form"  onSubmit={this.handleSubmit}>
@@ -72,6 +90,9 @@ export default class UserComponent extends React.Component<UserComponentProps, U
                     <p>Name: {this.state.name}</p>
                     <p>Email: {this.state.email}</p>
                 </div>
+                <button onClick={this.handleGetUsers}> Get Users </button>
+
+                <UsersDisplayComponent users={this.state.users}/>
             </div>
         )
     }
