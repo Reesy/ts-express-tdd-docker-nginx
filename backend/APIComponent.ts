@@ -2,6 +2,7 @@ import express from 'express';
 import { Collection } from 'mongodb';
 import { config } from './config';
 import { User } from './interfaces/user';
+import cors from 'cors';
 
 class APIComponent 
 {

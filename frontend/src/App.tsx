@@ -21,9 +21,7 @@ export default class App extends React.Component<AppProps, AppState>
       <div className="App">
         <header>
         </header>
-        <body>
-          <UserComponent />
-        </body>
+        <UserComponent />
       </div>
     );
   }
