@@ -22,6 +22,33 @@ Note: If the backend or frontend are running locally you will need to use the ho
 docker run --network host <desired_image_name>
 ```
 
+By default the app will expect acess to the following APIs: (from backend)
+
+```
+get users: http://localhost:8000/api/v1/users
+post user: http://localhost:8000/api/v1/user 
+```
+This can be overrode by setting the following environment variables:
+
+REACT_APP_API_URL: MyDesiredURL.com
+</br>
+REACT_APP_API_PORT: 4500
+
+This would change the APIS to:
+
+```
+get users: http://MyDesiredURL:4500/api/v1/users
+post user: http://MyDesiredURL:4500/api/v1/user
+```
+
+This can be achieved by adding the variables to a .env file in the root of the project.
+</br>
+Or via command line
+
+```
+REACT_APP_API_URL=MyDesiredURL.com REACT_APP_API_PORT=4500 npm run start 
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
