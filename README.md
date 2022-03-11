@@ -22,7 +22,9 @@ The react frontend was bootstrapped using create-react-app.
 - [ ] Add a nginx.conf file
 - [ ] Update CORS to be less permissable, i.e add a prod mode. 
 - [ ] Dockerise frontend
+  - [ ] Narrow down files that should be in the docker image.
 - [ ] Dockerise backend
+  - [ ] Narrow down files that should be in the docker image.
 - [ ] Add docker-compose.yml
 - [x] Jenkins build jobs
   - [ ] Add a jenkins job to build and test the backend
