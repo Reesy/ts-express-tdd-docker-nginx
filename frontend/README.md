@@ -25,20 +25,18 @@ docker run --network host <desired_image_name>
 By default the app will expect acess to the following APIs: (from backend)
 
 ```
-get users: http://localhost:8000/api/v1/users
-post user: http://localhost:8000/api/v1/user 
+get users: /api/v1/users
+post user: /api/v1/user 
 ```
-This can be overrode by setting the following environment variables:
+By default the hostname and port will match the client, This can be overrode by setting the following environment variable:
 
-REACT_APP_API_URL: MyDesiredURL.com
-</br>
-REACT_APP_API_PORT: 4500
+REACT_APP_API_URL: url:port (myexample.com:7500)
 
-This would change the APIS to:
+This would change the APIs to:
 
 ```
-get users: http://MyDesiredURL:4500/api/v1/users
-post user: http://MyDesiredURL:4500/api/v1/user
+get users: http://myexample.com:7500/api/v1/users
+post user: http://myexample.com:7500/api/v1/user
 ```
 
 This can be achieved by adding the variables to a .env file in the root of the project.
@@ -46,7 +44,7 @@ This can be achieved by adding the variables to a .env file in the root of the p
 Or via command line
 
 ```
-REACT_APP_API_URL=MyDesiredURL.com REACT_APP_API_PORT=4500 npm run start 
+REACT_APP_API_URL=http://myexample.com:7500 npm run start 
 ```
 
 ## Available Scripts

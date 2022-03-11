@@ -26,7 +26,7 @@ The react frontend was bootstrapped using create-react-app.
   - [ ] Narrow down files that should be in the docker image.
 - [x] Dockerise backend
   - [ ] Narrow down files that should be in the docker image.
-- [ ] Add docker-compose.yml
+- [x] Add docker-compose.yml
 - [x] Jenkins build jobs
   - [ ] Add a jenkins job to build and test the backend
   - [ ] Add a Jenkins job to build the test frontend.

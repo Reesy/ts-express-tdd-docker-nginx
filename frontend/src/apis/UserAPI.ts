@@ -11,10 +11,8 @@ export class UserAPI
 {
     private UserRequest : IRequest; 
     
-    private host_url = process.env.REACT_APP_API_URL ? process.env.REACT_APP_API_URL : "http://localhost";
-    private host_port = process.env.REACT_APP_API_PORT ? process.env.REACT_APP_API_PORT : "8000";
-    private getUsersAPI = `${this.host_url}:${this.host_port}/api/v1/users`;
-    private postUserAPI = `${this.host_url}:${this.host_port}/api/v1/user`;
+    private getUsersAPI = process.env.REACT_APP_API_URL ? `${process.env.REACT_APP_API_URL}/api/v1/users` : '/api/v1/users'; 
+    private postUserAPI = process.env.REACT_APP_API_URL ? `${process.env.REACT_APP_API_URL}/api/v1/user` : '/api/v1/user'; 
 
     constructor()
     {
@@ -31,7 +29,7 @@ export class UserAPI
 
         }
 
-        const uri = "http://localhost:8000/api/v1/users";
+        const uri = this.getUsersAPI;
         
         let serverResponse = await this.UserRequest.get(uri, options);  
         let users: Array<User> = serverResponse.data;
@@ -55,7 +53,7 @@ export class UserAPI
             }
         }
 
-        const uri = "http://localhost:8000/api/v1/user";
+        const uri = this.postUserAPI;
 
         let response = await this.UserRequest.post(uri, newUser, options);
         return response;
