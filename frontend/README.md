@@ -1,6 +1,26 @@
-# Getting Started with Create React App
+## Building docker image (from ./frontend folder)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+You must first ensure the app was built
+```
+npm run build
+```
+
+Building the image
+```
+docker build -t <desired_image_name> . 
+```
+
+Running the image
+
+```
+docker run -p 3000:3000 <desired_image_name>
+```
+
+Note: If the backend or frontend are running locally you will need to use the host networking flag ' --network host '
+
+```
+docker run --network host <desired_image_name>
+```
 
 ## Available Scripts
 

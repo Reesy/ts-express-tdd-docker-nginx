@@ -1,3 +1,6 @@
+## Building docker image
+
+
 ## Manually running container (would need to use host networking if running dockerised mongo locally)
 
 ```

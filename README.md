@@ -5,7 +5,7 @@
 
 This is a small project to test nginx, I want to use docker-compose to host a non-trivial example of serving a front end, backend and a database (in this case mongoDB).
 
-It has a mongo database that stores a user name and an associated email address, there is an insertion and delection REST API, as well as a GET request for all the users.
+It has a mongo database that stores a user name and an associated email address, there is an insertion and deletion REST API, as well as a GET request for all the users.
 
 The react frontend was bootstrapped using create-react-app.
 
@@ -21,9 +21,9 @@ The react frontend was bootstrapped using create-react-app.
   - [ ] Handle error responses correctly in Users component.
 - [ ] Add a nginx.conf file
 - [ ] Update CORS to be less permissable, i.e add a prod mode. 
-- [ ] Dockerise frontend
+- [x] Dockerise frontend
   - [ ] Narrow down files that should be in the docker image.
-- [ ] Dockerise backend
+- [x] Dockerise backend
   - [ ] Narrow down files that should be in the docker image.
 - [ ] Add docker-compose.yml
 - [x] Jenkins build jobs
