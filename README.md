@@ -22,6 +22,8 @@ The react frontend was bootstrapped using create-react-app.
   - [x] Update the backend api paths with a configurable host via env variables.
 - [x] Add a nginx.conf file
   - [ ] Add certificate, using certbot.
+  - [ ] Add a readme on using certbot and adding cert volumes through docker. 
+- [ ] Make nginx optional for deployments with nginx installed directly on the metal. 
 - [ ] Update CORS to be less permissable, i.e add a prod mode. 
 - [x] Dockerise frontend
   - [ ] Narrow down files that should be in the docker image.
