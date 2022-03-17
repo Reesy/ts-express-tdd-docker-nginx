@@ -33,6 +33,8 @@ The react frontend was bootstrapped using create-react-app.
 - [x] Jenkins build jobs
   - [ ] Add a jenkins job to build and test the backend
   - [ ] Add a Jenkins job to build the test frontend.
+- [ ] Better capture API errors and render a dummy template
+- [ ] write a readme on how to deploy with nginx on the machine rather that docker.
 
 
 ## Jenkins CI/CD support

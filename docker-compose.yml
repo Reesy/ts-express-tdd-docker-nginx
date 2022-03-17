@@ -16,7 +16,7 @@ services:
   backend:
     depends_on:
       - mongo
-    image: backend:latest
+    image: ts-express-tdd-docker-backend:latest
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -30,7 +30,7 @@ services:
   frontend:
     depends_on:
       - backend
-    image: frontend:latest
+    image: ts-express-tdd-docker-frontend:latest
     build:
       context: ./frontend
       dockerfile: Dockerfile
