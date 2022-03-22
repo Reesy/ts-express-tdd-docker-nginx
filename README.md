@@ -1,18 +1,30 @@
 # ts-express-tdd-docker-nginx
 
-
-# Description
-
-This is a small project to test nginx, I want to use docker-compose to host a non-trivial example of serving a front end, backend and a database (in this case mongoDB).
+This is a small project to test nginx, I want to use docker-compose to host a single-page app with a back-end and database (in this case mongoDB).
 
 It has a mongo database that stores a user name and an associated email address, there is an insertion and deletion REST API, as well as a GET request for all the users.
 
-The react frontend was bootstrapped using create-react-app.
+
+## Using nginx
+1. Docker compose spins up 3 servers (frontend, backend and mongo) the entry point is http://hostAddress:80
+2. The frontend server serves client static files in a docker container on http://localhost:3000 _(only accessible by other containers)_ <br>
+ _nginx remaps https://hostAddress:80/ -> http://frontend:3000/   (frontend in the docker-compose maps to the individual container)_
+3. The backend NodeJS API is in another container which runs on http://localhost:8000 _(only accessible by other containers)_ <br> 
+ _nginx remaps https://hostAddress:80/api -> http://backend:8000/api (backend in the docker-compose maps to the individual container)_
+4. The mongo database is in a seperate container <br>
+_we don't remap mongo in the nginx conf, we only want the api server to have access, and to prevent outside access_
+<img src="ts-react-nginx-example.png" style="width: 800px" />
 
 <br/>
 
+## UI
+
+Building and running ```docker-compose up``` navigating to http://localhost will give this screen: 
+
+<img src="app.PNG" style="width: 600px" />
+
+
 ## Current progress
--------
 
 - [ ] Updated frontend to call the api.
   - [x] Add a form to add user.
@@ -40,21 +52,14 @@ The react frontend was bootstrapped using create-react-app.
 ## Jenkins CI/CD support
 It has Jenkins support, If you have a Jenkins server you can use the Jenkins github plugin to set up a job. It's much easier through blue-ocean. You can create a new pipeline, point it at your github repository and it will automatically build your project.
 
-<br/>
-<br/>
-
-
--------
 
 ## Installing and running the Node backend.
--------
-
 
 A template backend typescript project using REST with express and supertest for TDD
 
 This project comes preset for vscode, the included ```.vscode/launch.json``` allows for running of the app with debugging as well as running of mocha tests with debugging. 
 
-Commands:
+## Commands:
 
 Install: (requires node and npm)
 ``` npm install ```
@@ -70,10 +75,11 @@ Test:
 
 Any tests added to the test folder will automatically be tested. 
 
-List of example requests:
+## REST API
 
----
-Example ```/api/v1/user``` request:
+### POST ```/api/v1/user```
+
+Example request:
 ```
 POST /api/v1/user HTTP/1.1
 Accept: application/json
@@ -95,8 +101,10 @@ Content-Length: xy
 "Added user John Doe to the database" 
 
 ```
----
-GET example ```/api/v1/users``` request:
+
+### GET ```/api/v1/users```
+
+Example request:
 ```
 GET /api/v1/users HTTP/1.1
 ```
@@ -119,8 +127,6 @@ Content-Length: xy
 ]
 ```
 
----
-
 ## Installing and running the React frontend.
 
 ### `npm start`
@@ -142,6 +148,3 @@ Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
