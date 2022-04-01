@@ -23,36 +23,6 @@ Building and running ```docker-compose up``` navigating to http://localhost will
 
 <img src="app.PNG" style="width: 600px" />
 
-
-## Current progress
-
-- [ ] Updated frontend to call the api.
-  - [x] Add a form to add user.
-  - [x] Add a component to display the current users
-  - [ ] Add a UI widget to delete a user.
-  - [ ] Handle error responses correctly in Users component.
-  - [x] Update the backend api paths with a configurable host via env variables.
-- [x] Add a nginx.conf file
-  - [ ] Add certificate, using certbot.
-  - [ ] Add a readme on using certbot and adding cert volumes through docker. 
-- [ ] Make nginx optional for deployments with nginx installed directly on the metal. 
-- [ ] Update CORS to be less permissable, i.e add a prod mode. 
-- [x] Dockerise frontend
-  - [ ] Narrow down files that should be in the docker image.
-- [x] Dockerise backend
-  - [ ] Narrow down files that should be in the docker image.
-- [x] Add docker-compose.yml
-- [x] Jenkins build jobs
-  - [ ] Add a jenkins job to build and test the backend
-  - [ ] Add a Jenkins job to build the test frontend.
-- [ ] Better capture API errors and render a dummy template
-- [ ] write a readme on how to deploy with nginx on the machine rather that docker.
-
-
-## Jenkins CI/CD support
-It has Jenkins support, If you have a Jenkins server you can use the Jenkins github plugin to set up a job. It's much easier through blue-ocean. You can create a new pipeline, point it at your github repository and it will automatically build your project.
-
-
 ## Installing and running the Node backend.
 
 A template backend typescript project using REST with express and supertest for TDD
@@ -147,4 +117,31 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
+
+## Jenkins CI/CD support
+It has Jenkins support, If you have a Jenkins server you can use the Jenkins github plugin to set up a job. It's much easier through blue-ocean. You can create a new pipeline, point it at your github repository and it will automatically build your project.
+
+
+## Current progress
+
+- [ ] Updated frontend to call the api.
+  - [x] Add a form to add user.
+  - [x] Add a component to display the current users
+  - [ ] Add a UI widget to delete a user.
+  - [ ] Handle error responses correctly in Users component.
+  - [x] Update the backend api paths with a configurable host via env variables.
+- [x] Add a nginx.conf file
+  - [ ] Add certificate, using certbot.
+  - [ ] Add a readme on using certbot and adding cert volumes through docker. 
+- [ ] Make nginx optional for deployments with nginx installed directly on the metal. 
+- [ ] Update CORS to be less permissable, i.e add a prod mode. 
+- [x] Dockerise frontend
+  - [ ] Narrow down files that should be in the docker image.
+- [x] Dockerise backend
+  - [ ] Narrow down files that should be in the docker image.
+- [x] Add docker-compose.yml
+- [x] Jenkins build jobs
+  - [ ] Add a jenkins job to build and test the backend
+  - [ ] Add a Jenkins job to build the test frontend.
+- [ ] Better capture API errors and render a dummy template
+- [ ] write a readme on how to deploy with nginx on the machine rather that docker.
